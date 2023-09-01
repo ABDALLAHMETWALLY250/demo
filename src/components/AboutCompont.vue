@@ -68,13 +68,11 @@
           <i class="fa-solid fa-phone"></i> Phone : +20 1550736508
         </p>
         <p style="border-bottom: 2px solid ;d-flex " class="card-text">
-          <i class="fa-solid fa-envelope"></i> Email : <b
+          <i class="fa-solid fa-envelope"></i> Email :
+          <b style="text-transform: lowercase">a</b>bdometwaly250@<b
             style="text-transform: lowercase"
-            >a</b
-          >bdometwaly250@<b style="text-transform: lowercase">g</b>mail.<b
-            style="text-transform: lowercase"
-            >c</b
-          >om
+            >g</b
+          >mail.<b style="text-transform: lowercase">c</b>om
         </p>
         <p style="border-bottom: 2px solid" class="card-text">
           <i class="fa-solid fa-briefcase"></i> Freelancer : Available
@@ -85,7 +83,7 @@
             href="https://drive.google.com/file/d/1ZeGdNJXhLAiCKulsI8sLQoKE2dvqXkX-/view"
             download
             class="hvr-bob btn-primary btn d-block text-center"
-            style="font: 20px sans-serif;"
+            style="font: 20px sans-serif"
           >
             <i class="fa-solid fa-graduation-cap"></i>
             My C.V
@@ -95,13 +93,12 @@
     </div>
   </div>
 
-  <div class="container-fluid">
+  <div class="container-fluid" v-if="results.length > 0">
     <div
       class="row row-cols-1 row-cols-md-2 g-4 text-center"
       data-aos="zoom-in-left"
       data-aos-duration="1500"
       style="width: 100%; margin: auto"
-      v-if="results"
     >
       <div
         data-aos="zoom-in-right"
@@ -130,6 +127,42 @@
                 ></router-link
               >
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid" v-else>
+    <div
+      class="row row-cols-1 row-cols-md-2 g-4 text-center"
+      data-aos="zoom-in-left"
+      data-aos-duration="1500"
+      style="width: 100%; margin: auto"
+    >
+      <div
+        data-aos="zoom-in-right"
+        data-aos-duration="1500"
+        class="col-lg-4 col-sm-12 col-md-6 wow fadeIn"
+        v-for="m in 6"
+        :key="m"
+      >
+        <div width="400" class="card" aria-hidden="true">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-6"></span>
+            </h5>
+            <p class="card-text placeholder-glow">
+              <span class="placeholder col-7"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-8"></span>
+            </p>
+            <a
+              class="btn btn-primary disabled placeholder col-6"
+              aria-disabled="true"
+            ></a>
           </div>
         </div>
       </div>
@@ -221,7 +254,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      results: null,
+      results: [],
     };
   },
   mounted() {
@@ -249,10 +282,6 @@ export default {
     margin-left: 0px;
   }
 
-  .col-md-8,
-  .col-md-4 {
-    width: 100%;
-  }
   .lottie {
     height: 50vh;
     width: 100%;
@@ -276,12 +305,13 @@ export default {
   }
   .dark-theme .card-body {
     background: #0c0d0e;
+    color: white;
   }
   .btn {
     font-size: 14px;
   }
 }
-@media screen and (min-width: 767px) and (max-width: 1023px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .gf {
     margin-left: 0px;
   }
@@ -295,17 +325,17 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 0;
   }
   .lottie {
-    height: 355px;
     width: 100%;
   }
   .descripe {
     width: 100%;
-    padding: 8px;
     text-align: left;
     p {
-      font-size: 16px !important;
+      font-size: 18px !important;
+      padding-inline: 5px;
     }
   }
 
@@ -318,18 +348,13 @@ export default {
       margin-bottom: 0;
     }
   }
-  .col-md-8,
-  .col-md-4 {
-    width: 50%;
-  }
-  .col-md-4 {
-    padding: 5px;
-  }
+
   .btn {
     font-size: 15px;
   }
   .dark-theme .card-body {
     background: #0c0d0e;
+    color: white;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -368,15 +393,13 @@ export default {
       font-size: 28px !important;
     }
   }
-  .col-md-8,
-  .col-md-4 {
-    width: 50%;
-  }
+
   .btn {
     font-size: 16px;
   }
   .dark-theme .card-body {
     background: #000;
+    color: white;
   }
 }
 
@@ -464,6 +487,9 @@ p {
   position: relative;
   overflow: hidden;
   outline: 2px solid #0d6efd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button:hover {
@@ -504,6 +530,9 @@ button:hover::before {
   overflow: hidden;
   outline: 2px solid #0d6efd;
   background: #0d6efd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button-two:hover {
