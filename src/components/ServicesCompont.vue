@@ -13,8 +13,8 @@
     </h2>
   </div>
   <div class="feat bg-gray pt-5 pb-5">
-    <div class="container">
-      <div class="row" v-if="results">
+    <div class="container" v-if="results.length > 0">
+      <div class="row">
         <div class="section-head col-sm-12"></div>
         <div
           data-aos="zoom-in-left"
@@ -53,6 +53,41 @@
                   </button></a
                 ></router-link
               >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid" v-else>
+      <div
+        class="row row-cols-1 row-cols-md-2 g-4 text-center"
+        data-aos="zoom-in-left"
+        data-aos-duration="1500"
+        style="width: 100%; margin: auto"
+      >
+        <div
+          data-aos="zoom-in-right"
+          data-aos-duration="1500"
+          class="col-lg-4 col-sm-12 col-md-6 wow fadeIn"
+          v-for="m in 8"
+          :key="m"
+        >
+          <div width="400" class="card" aria-hidden="true">
+            <div class="card-body">
+              <h5 class="card-title placeholder-glow">
+                <span class="placeholder col-6"></span>
+              </h5>
+              <p class="card-text placeholder-glow">
+                <span class="placeholder col-7"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-6"></span>
+                <span class="placeholder col-8"></span>
+              </p>
+              <a
+                class="btn btn-primary disabled placeholder col-6"
+                aria-disabled="true"
+              ></a>
             </div>
           </div>
         </div>
@@ -200,12 +235,28 @@ p.awesome_line {
   text-align: center;
   padding: 30px 25px;
   box-shadow: 0 10px 20px -5px gray;
-  border-radius: 20px;
+  border-radius: 100px 10px;
   border: 3px solid #111;
   margin-bottom: 30px;
   -webkit-transition: all 0.5s ease 0;
   transition: all 0.5s ease 0;
   transition: all 0.5s ease 0s;
+  &:hover {
+    background: #f91942;
+    box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 0.5s ease 0;
+    transition: all 0.5s ease 0;
+    transition: all 0.5s ease 0s;
+    color: #eee;
+    .item,
+    span.icon {
+      background: #eee;
+      border-radius: 10px;
+      -webkit-transition: all 0.5s ease 0;
+      transition: all 0.5s ease 0;
+      transition: all 0.5s ease 0s;
+    }
+  }
 }
 .dark-theme .item {
   background: #111;
@@ -213,29 +264,14 @@ p.awesome_line {
   text-align: center;
   padding: 30px 25px;
   box-shadow: 0 10px 20px -5px gray;
-  border-radius: 20px;
+  border-radius: 100px 10px;
   border: 3px solid #eee;
   margin-bottom: 30px;
   -webkit-transition: all 0.5s ease 0;
   transition: all 0.5s ease 0;
   transition: all 0.5s ease 0s;
 }
-.item:hover {
-  background: #f91942;
-  box-shadow: 0 8px 20px 0px rgba(0, 0, 0, 0.2);
-  -webkit-transition: all 0.5s ease 0;
-  transition: all 0.5s ease 0;
-  transition: all 0.5s ease 0s;
-  color: #eee;
-}
-.item:hover .item,
-.item:hover span.icon {
-  background: #eee;
-  border-radius: 10px;
-  -webkit-transition: all 0.5s ease 0;
-  transition: all 0.5s ease 0;
-  transition: all 0.5s ease 0s;
-}
+
 .item:hover h5,
 .item:hover p {
   color: #fff;
@@ -365,6 +401,9 @@ p.awesome_line {
   position: relative;
   overflow: hidden;
   outline: 2px solid #0d6efd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button:hover {
@@ -405,6 +444,9 @@ button:hover::before {
   overflow: hidden;
   outline: 2px solid #0d6efd;
   background: #0d6efd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button-two:hover {
@@ -443,9 +485,27 @@ button:hover::before {
   align-items: center;
   justify-content: center;
 }
+
+.btn {
+  background-color: #0d6efd;
+  padding: 14px 40px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: 0.4s;
+}
+@media screen and (max-width: 767px) {
+  .item {
+    border-radius: 20px;
+  }
+}
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  .item {
+    border-radius: 20px;
+  }
+}
 </style>
-
-
-
-
-
