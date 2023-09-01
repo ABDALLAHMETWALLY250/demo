@@ -14,8 +14,8 @@
     </h2>
   </div>
   <br />
-  <div class="container text-center">
-    <div class="row" v-if="works">
+  <div class="container text-center" v-if="works.length > 0">
+    <div class="row">
       <div class="section-head col-sm-12"></div>
       <div
         data-aos="zoom-in"
@@ -27,10 +27,7 @@
           <img :src="work.img" />
           <figcaption>
             <h3>{{ work.title }}</h3>
-            <div
-              class="dflex w-100"
-              style="justify-content: space-evenly; margin-top: 50px"
-            >
+            <div class="dflex w-100" style="margin-top: 2rem">
               <p
                 style="border-radius: 5px"
                 class="bg-light text-dark p-1 dflex"
@@ -47,19 +44,27 @@
                 style="border-radius: 5px"
                 class="bg-light text-dark p-1 dflex"
               >
-                <i class="fa-brands fa-js"></i> {{ work.JS }}
+                <i class="fa-brands fa-js"></i> {{ work.JS ? work.JS : "No" }}
               </p>
               <p
                 style="border-radius: 5px"
                 class="bg-light text-dark p-1 dflex"
               >
-                <i class="fa-brands fa-bootstrap"></i> {{ work.BootStrap }}
+                <i class="fa-brands fa-bootstrap"></i>
+                {{ work.BootStrap ? work.BootStrap : "No" }}
+              </p>
+              <p
+                style="border-radius: 5px"
+                class="bg-light text-dark p-1 dflex"
+              >
+                <i class="fa-brands fa-vuejs"></i>
+                {{ work.Vue ? work.Vue : "No" }}
               </p>
             </div>
 
             <div
               class="dflex w-100"
-              style="justify-content: space-evenly; margin-top: 50px"
+              style="margin-top: 2rem; gap: 0.2rem !important"
             >
               <button type="button" class="btn btn-success">
                 <i class="fa-solid fa-link"></i> DEMO
@@ -77,7 +82,9 @@
                   rel="noopener noreferrer"
                 ></a>
               </button>
-              <button class="eye"><i class="fa-solid fa-eye"></i> 10</button>
+              <button class="eye">
+                <i class="fa-solid fa-eye"></i> {{ work.views }}
+              </button>
             </div>
           </figcaption>
         </figure>
@@ -89,10 +96,7 @@
           />
           <figcaption>
             <h3>LeaderCommerce</h3>
-            <div
-              class="dflex w-100"
-              style="justify-content: space-evenly; margin-top: 50px"
-            >
+            <div class="dflex w-100" style="margin-top: 2rem">
               <p
                 style="border-radius: 5px"
                 class="bg-light text-dark p-1 dflex"
@@ -123,16 +127,22 @@
               >
                 <i class="fa-brands fa-vuejs"></i> Vue
               </p>
+              <p
+                style="border-radius: 5px"
+                class="bg-light text-dark medium p-1 dflex"
+              >
+                Progress <i class="fa-solid fa-spinner fa-spin"></i>
+              </p>
             </div>
 
             <div
               class="dflex w-100"
-              style="justify-content: space-evenly; margin-top: 50px"
+              style="margin-top: 2rem; gap: 0.2rem !important"
             >
               <button type="button" class="btn btn-success">
                 <i class="fa-solid fa-link"></i> DEMO
                 <a
-                  href="https://leader-site-commerce.netlify.app/"
+                  href="https://leader-commerce.netlify.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                 ></a>
@@ -140,14 +150,17 @@
               <button type="button" class="btn btn-success">
                 <i class="fa-regular fa-code-branch"></i> REPO
                 <a
-                  href="https://github.com/ABDALLAHMETWALLY250/commerce"
+                  href="https://github.com/ABDALLAHMETWALLY250/leader-commerce"
                   target="_blank"
                   rel="noopener noreferrer"
                 ></a>
               </button>
               <button class="eye"><i class="fa-solid fa-eye"></i> 10</button>
             </div>
-            <p style="border-radius: 5px" class="bg-light text-dark p-1 mt-3">
+            <p
+              style="border-radius: 5px"
+              class="bg-light small text-dark p-1 mt-3"
+            >
               Progress <i class="fa-solid fa-spinner fa-spin"></i>
             </p>
           </figcaption>
@@ -162,10 +175,7 @@
           />
           <figcaption>
             <h3>Leader-Coding</h3>
-            <div
-              class="dflex w-100"
-              style="justify-content: space-evenly; margin-top: 50px"
-            >
+            <div class="dflex w-100" style="margin-top: 2rem">
               <p
                 style="border-radius: 5px"
                 class="bg-light text-dark p-1 dflex"
@@ -196,11 +206,17 @@
               >
                 <i class="fa-brands fa-vuejs"></i> Vue
               </p>
+              <p
+                style="border-radius: 5px"
+                class="bg-light text-dark medium p-1 dflex"
+              >
+                Progress <i class="fa-solid fa-spinner fa-spin"></i>
+              </p>
             </div>
 
             <div
               class="dflex w-100"
-              style="justify-content: space-evenly; margin-top: 50px"
+              style="margin-top: 2rem; gap: 0.2rem !important"
             >
               <button type="button" class="btn btn-success">
                 <i class="fa-solid fa-link"></i> DEMO
@@ -220,7 +236,10 @@
               </button>
               <button class="eye"><i class="fa-solid fa-eye"></i> 10</button>
             </div>
-            <p style="border-radius: 5px" class="bg-light text-dark p-1 mt-3">
+            <p
+              style="border-radius: 5px"
+              class="bg-light small text-dark p-1 mt-3"
+            >
               Progress <i class="fa-solid fa-spinner fa-spin"></i>
             </p>
           </figcaption>
@@ -229,8 +248,43 @@
       <div class="col-lg-4"></div>
     </div>
   </div>
+  <div class="container-fluid" v-else>
+    <div
+      class="row row-cols-1 row-cols-md-2 g-4 text-center"
+      data-aos="zoom-in-left"
+      data-aos-duration="1500"
+      style="width: 100%; margin: auto"
+    >
+      <div
+        data-aos="zoom-in-right"
+        data-aos-duration="1500"
+        class="col-lg-4 col-sm-12 col-md-6 wow fadeIn"
+        v-for="m in 6"
+        :key="m"
+      >
+        <div width="400" class="card" aria-hidden="true">
+          <div class="card-body">
+            <h5 class="card-title placeholder-glow">
+              <span class="placeholder col-6"></span>
+            </h5>
+            <p class="card-text placeholder-glow">
+              <span class="placeholder col-7"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-4"></span>
+              <span class="placeholder col-6"></span>
+              <span class="placeholder col-8"></span>
+            </p>
+            <a
+              class="btn btn-primary disabled placeholder col-6"
+              aria-disabled="true"
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="w-100 my-4">
-    <div class="buttons">
+    <div class="buttons container">
       <router-link to="/skills">
         <a class="hvr-bob">
           <button id="btn">
@@ -310,10 +364,8 @@ figure {
 
 img {
   width: 100% !important;
-  height: 397px;
+  height: 100%;
   border-radius: 6px;
-  -o-object-fit: fill;
-  object-fit: fill;
 }
 img:hover {
   scale: 2;
@@ -322,28 +374,41 @@ i {
   font-size: 20px;
   margin-right: 5px;
 }
-
-@media screen and (max-width: 767px) {
-  img {
-    object-fit: cover;
-  }
-  .n {
-    width: 100% !important;
-  }
+.medium {
+  display: none !important;
 }
 
 @media screen and (max-width: 767px) {
   img {
-    object-fit: cover;
+    max-width: 100%;
+    height: auto;
   }
   .n {
     width: 100% !important;
+  }
+  .medium {
+    display: none !important;
+  }
+  .small {
+    display: block !important;
   }
 }
 
 @media screen and (min-width: 767px) and (max-width: 1023px) {
   .eye {
     margin-top: 8px;
+  }
+  .small {
+    display: none !important;
+  }
+  .medium {
+    display: block !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .dflex {
+    margin-top: 1rem;
   }
 }
 
@@ -364,6 +429,7 @@ button:focus {
   box-shadow: 0px 1px 6px 0px #25d366;
   transform: translate(0, -3px);
   transition: 0.2s;
+  display: flex !important;
   transition-timing-function: linear;
 }
 .fa-js,
@@ -384,7 +450,7 @@ p {
 }
 
 #btn {
-  padding: 13px 8px;
+  padding: 10px 8px;
   border: none;
   border-radius: 5px;
   font-weight: bold;
@@ -423,7 +489,7 @@ p {
 }
 
 #btn-two {
-  padding: 13px 8px;
+  padding: 10px 8px;
   border: none;
   border-radius: 5px;
   font-weight: bold;
